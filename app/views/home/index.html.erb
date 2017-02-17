@@ -2,10 +2,14 @@
 
 <% if user_signed_in? %>
   <%= link_to "Personal Craft Gallery", user_products_path(@products, @user) %>
+  <br>
   <%= link_to "Add a new Product", new_user_product_path(@user, @product) %>
 <% end %>
 
+<h4>Products available from Pretzy</h4>
+<ul>
 <% @products.each do |product| %>
-<%= link_to product.name, products_path %>
+<li><%= link_to product.name, product_path(product) %></li>
 <% end %>
+</ul>
 <br>

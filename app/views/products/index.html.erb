@@ -1,4 +1,4 @@
-<h1>Products</h1>
+<h1>Crafts You've Created</h1>
 
 <ul>
   <% @products.each do |product| %>
@@ -6,6 +6,9 @@
   <% end %>
 </ul>
 
-<%= link_to "Add a Product", new_user_product_path(current_user.id) %>
 
+
+
+<%= link_to "Add a Product", new_user_product_path(current_user.id) %>
+<br>
 <%= link_to "View All Products", root_path %>
