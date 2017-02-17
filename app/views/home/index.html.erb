@@ -1,7 +1,10 @@
 <h1>Welcome to Craftsy!</h1>
 
 <% if user_signed_in? %>
-  <%= link_to "Personal Craft Gallery", products_path(@products) %>
+  <%= link_to "Personal Craft Gallery", user_products_path(@products, @user) %>
 <% end %>
 
+<% @products.each do |product| %>
+<%= link_to product.name, product_path %>
+<% end %>
 <br>

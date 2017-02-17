@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
  end
 
  def create
-    @product = Product.new
+    @product = Product.new(owner_id: current_user.id)
     if @product.save
       flash[:notice] = "Product successfully added!"
       redirect_to  product_path
