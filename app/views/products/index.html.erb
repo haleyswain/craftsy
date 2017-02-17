@@ -6,6 +6,6 @@
   <% end %>
 </ul>
 
-<%= link_to "Add a Product", new_user_product_path %>
+<%= link_to "Add a Product", new_user_product_path(current_user.id) %>
 
 <%= link_to "View All Products", root_path %>

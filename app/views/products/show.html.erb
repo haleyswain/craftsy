@@ -1,4 +1,9 @@
 <h1><%= @product.name %></h1>
+<h5><%= @product.country %>
+<h5><%= @product.description %>
+<h5><%= @product.price %>
+<%= image_tag @product.image  %>
+
 
 
 <p><%= link_to "Return to products", products_path %></p>

@@ -1,6 +1,8 @@
 <%= render "layouts/errors", :object => @product %>
 
 <%= form_for @product, url: products_path, html: { multipart: true } do |f| %>
+  <h5>Image</h5>
+  <%= f.file_field :image %>
   <h5>Product Name</h5>
   <%= f.text_field :name %>
   <h5>Product Description</h5>

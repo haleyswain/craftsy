@@ -13,10 +13,11 @@ class ProductsController < ApplicationController
  end
 
  def create
-    @product = Product.new(owner_id: current_user.id)
+    @product = Product.new(product_params)
+    @user = current_user.id
     if @product.save
       flash[:notice] = "Product successfully added!"
-      redirect_to  product_path
+      redirect_to  products_path
     else
       redirect_to root_path
     end
@@ -40,6 +41,11 @@ class ProductsController < ApplicationController
     else
       render :edit
     end
+  end
+
+private
+def product_params
+    params.require(:product).permit(:name, :description, :price, :image, :country)
   end
 
 
