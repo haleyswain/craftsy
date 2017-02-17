@@ -1,5 +1,7 @@
-<h1>Welcome to Craftsy! Please Sign in to Continue</h1>
+<h1>Welcome to Craftsy!</h1>
+
 <% if user_signed_in? %>
-  <%= link_to "Personal Craft Gallery", user_products_path(@user, @products) %>
+  <%= link_to "Personal Craft Gallery", products_path(@products) %>
 <% end %>
+
 <br>

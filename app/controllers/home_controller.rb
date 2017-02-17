@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index
     @products = Product.all
-    @product = Product.new
+    if current_user
+      @user = current_user.id
+    end
   end
 end

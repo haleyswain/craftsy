@@ -1,0 +1,12 @@
+
+<%= form_for @product, url: products_path, html: { multipart: true } do |f| %>
+  <h5>Product Name</h5>
+  <%= f.text_field :name %>
+  <h5>Product Description</h5>
+  <%= f.text_field :description %>
+  <h5>Product Price</h5>
+  <%= f.text_field :price %>
+  <h5>Country of Origin</h5>
+  <%= f.text_field :country %>
+  <%= f.submit %>
+<% end %>
