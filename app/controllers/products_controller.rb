@@ -2,7 +2,10 @@ class ProductsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @products = Product.all
+    @products = Product.where(owner_id: current_user.id)
+    if current_user
+      @user = current_user.id
+    end
   end
 
   def new
@@ -24,6 +27,9 @@ before_action :authenticate_user!, except: [:index, :show]
   def show
     @product = Product.find(params[:id])
     @comments = @product.comments
+    if current_user
+    @user = current_user.id
+    end
   end
 
   def edit
