@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_filter :authenticate_user!
+before_action :authenticate_user!, except: [:index, :show]
+
   def index
-    @product = Product.new
     @products = Product.where(owner_id: current_user.id)
     @user = current_user.id
   end
@@ -16,11 +16,12 @@ class ProductsController < ApplicationController
  end
 
  def create
-    @product = Product.new(paperclip: image_params[:paperclip], owner_id: current_user.id)
+    @product = Product.new(product_params)
+    @product.owner_id = current_user.id
     @user = current_user.id
     if @product.save
       flash[:notice] = "Product successfully added!"
-      redirect_to  products_path
+      redirect_to products_path
     else
       redirect_to root_path
     end
@@ -39,8 +40,8 @@ class ProductsController < ApplicationController
  def update
     @user = current_user.id
     @product = Product.find(params[:id])
-    if @product.update(user_ids: tag_params[:user_ids])
-      redirect_to :back
+    if @product.update(owner_id: current_user.id)
+      redirect_to root_path
     else
       render :edit
     end
@@ -50,7 +51,7 @@ class ProductsController < ApplicationController
     @user = current_user.id
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to user_products_path
+    redirect_to root_path
   end
 
 

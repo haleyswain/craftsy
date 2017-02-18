@@ -7,9 +7,9 @@
 <% end %>
 
 <h4>Products available from Pretzy</h4>
-<ul>
-<% @products.each do |product| %>
-<li><%= link_to product.name, product_path(product) %></li>
-<% end %>
-</ul>
+  <ul>
+    <% @products.each do |product| %>
+    <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
 <br>
