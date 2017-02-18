@@ -3,6 +3,15 @@
 <h5><%= @product.description %>
 <h5><%= @product.price %>
 <%= image_tag @product.image  %>
+<h5><%= @product.comments %></h5>
+
+<%= form_for @product do |f| %>
+  <% if user_signed_in? %>
+    <h5>Leave a Comment</h5>
+    <%= f.text_field :comments %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
 
 <% if user_signed_in? %>
   <% if current_user.id == @product.owner_id %>
