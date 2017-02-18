@@ -57,7 +57,7 @@ before_action :authenticate_user!, except: [:index, :show]
 
 private
 def product_params
-    params.require(:product).permit(:name, :description, :price, :image, :country)
+    params.require(:product).permit(:name, :description, :price, :country)
   end
 
 

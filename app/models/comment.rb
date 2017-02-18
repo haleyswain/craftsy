@@ -4,5 +4,5 @@ class Comment < ActiveRecord::Base
   validates :author, :presence => true
   validates :user_id, :presence => true
 
-  belongs_to :product
+  belongs_to :user
 end

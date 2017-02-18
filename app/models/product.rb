@@ -4,7 +4,6 @@ class Product < ActiveRecord::Base
   validates :price, :presence => true
   validates :country, :presence => true
   validates :owner_id, :presence => true
-  validates :comments, :presence => true
 
   belongs_to :user, optional: true
   has_many :comments
