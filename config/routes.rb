@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :products do
+    resources :comments
   end
 
   end

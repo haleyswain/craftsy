@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @comment %>
+
+<%= form_for @comment, url: product_comments_path, html: { multipart: true } do |f| %>
+  <h5>Comment Author:</h5>
+  <%= f.text_field :author %>
+  <h5>content</h5>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>

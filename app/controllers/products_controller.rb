@@ -2,13 +2,7 @@ class ProductsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @products = Product.where(owner_id: current_user.id)
-    @user = current_user.id
-  end
-
-  def show
-    @user = current_user.id
-    @product = Product.find(params[:id])
+    @products = Product.all
   end
 
   def new
@@ -28,8 +22,8 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def show
-    @user = current_user.id
     @product = Product.find(params[:id])
+    @comments = @product.comments
   end
 
   def edit
@@ -57,7 +51,7 @@ before_action :authenticate_user!, except: [:index, :show]
 
 private
 def product_params
-    params.require(:product).permit(:name, :description, :price, :image, :country, :comments)
+    params.require(:product).permit(:name, :description, :price, :image, :country)
   end
 
 

@@ -3,21 +3,21 @@
 <h5><%= @product.description %>
 <h5><%= @product.price %>
 <%= image_tag @product.image  %>
-<h5><%= @product.comments %></h5>
 
-<%= form_for @product do |f| %>
-  <% if user_signed_in? %>
-    <h5>Leave a Comment</h5>
-    <%= f.text_field :comments %>
-    <%= f.submit %>
+<ul>
+  <% @comments.each do |comment| %>
+  <li><%= comment.content %></li>
+  <li><%= comment.author %></li>
+
   <% end %>
-<% end %>
+</ul>
 
 <% if user_signed_in? %>
   <% if current_user.id == @product.owner_id %>
     <p><%= link_to "Edit", edit_user_product_path(@user, @product) %></p>
     <p><%= link_to "Delete Product", user_product_path(@user, @product), :data => {:confirm => "REALLY???", :method => "delete"} %></p>
+    <p><%= link_to "Leave a Comment About This Product", new_product_comment_path(@product) %>
   <% end %>
 <% end %>
 
-<p><%= link_to "Return to products", products_path %></p>
+<p><%= link_to "Return to products", root_path %></p>

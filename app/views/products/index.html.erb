@@ -8,7 +8,8 @@
 
 
 
-
-<%= link_to "Add a Product", new_user_product_path(current_user.id) %>
-<br>
-<%= link_to "View All Products", root_path %>
+<% if user_signed_in? %>
+  <%= link_to "Add a Product", new_user_product_path(current_user.id) %>
+  <br>
+  <%= link_to "View All Products", root_path %>
+<% end %>
