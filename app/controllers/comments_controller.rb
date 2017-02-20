@@ -1,9 +1,5 @@
 class CommentsController < ApplicationController
-
-  def index
-    @comment = Comment.new
-    @comments = Comment.all
-  end
+  before_action :authenticate_user!
 
   def new
     @product = Product.find(params[:product_id])

@@ -1,16 +1,20 @@
-<h1>Welcome to Pretzy!</h1>
-<p>Pretzy is a website focused on handmade or vintage items and supplies, as well as unique factory-manufactured items. These items cover a wide range, including art, photography, clothing, jewelry, food, bath and beauty products, quilts, knick-knacks, and toys. Many sellers also sell craft supplies such as beads, wire and jewelry-making tools. All vintage items must be at least 20 years old.</p>
-
+<div class = "content">
+</div>
+<hr>
+<div class = "about">
+  <h1>Welcome to Pretzy!</h1>
+  <p>Pretzy is a website focused on handmade or vintage items and supplies, as well as unique factory-manufactured items. These items cover a wide range, including art, photography, clothing, jewelry, food, bath and beauty products, quilts, knick-knacks, and toys. Many sellers also sell craft supplies such as beads, wire and jewelry-making tools. </p>
+</div>
+<hr>
 <% if user_signed_in? %>
-  <%= link_to "Personal Craft Gallery", user_products_path(@products, @user) %>
-  <br>
-  <%= link_to "Add a new Product", new_user_product_path(@user, @product) %>
-<% end %>
-
+  <% if current_user.admin %>
+    <%= link_to "Personal Craft Gallery", user_products_path(@products, @user) %>
+  <% end %>
 <h4>Products available from Pretzy</h4>
   <ul>
     <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
+      <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
+  <% end %>
   </ul>
 <br>

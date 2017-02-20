@@ -1,22 +1,21 @@
-<h1><%= @product.name %></h1>
-<h5><%= @product.country %>
-<h5><%= @product.description %>
-<h5><%= @product.price %>
-<%= image_tag @product.image  %>
-
-<ul>
-  <% @comments.each do |comment| %>
-  <li><%= comment.content %></li>
-  <li><%= comment.author %></li>
-  <% end %>
-</ul>
+<div class = "product-show">
+  <h1><%= @product.name %></h1>
+  <h5>Made In: <%= @product.country %></h5>
+  <h5><%= @product.description %><h5>
+  <h5>Price: $<%= @product.price %></h5>
+  <br>
+  <%= image_tag @product.image  %>
+<hr>
+  <ul>
+    <% @comments.each do |comment| %>
+    <li><%= comment.content %></li>
+    <li><%= comment.author %></li>
+    <% end %>
+  </ul>
+</div>
 
 <% if user_signed_in? %>
   <p><%= link_to "Leave a Comment About This Product", new_product_comment_path(@product) %>
-    <% if current_user.admin %>
-    <p><%= link_to "Edit", edit_user_product_path(@user, @product) %></p>
-    <p><%= link_to "Delete Product", user_product_path(@user, @product), :data => {:confirm => "REALLY???", :method => "delete"} %></p>
-  <% end %>
 <% end %>
 
 <p><%= link_to "Return to products", root_path %></p>

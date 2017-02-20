@@ -13,11 +13,32 @@
     img { width: 100% }
 }
 
+.content {
+  background-image: url("https://images.pexels.com/photos/187334/pexels-photo-187334.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+  background-size: cover;
+  background-position: center bottom;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 30px;
+ }
+
+ .about {
+  font-family: 'Raleway', sans-serif;
+ }
+
+ .product-show {
+  font-family: 'Raleway', sans-serif;
+ }
+
 img {
   max-width: 400px;
   max-height: 400px;
 }
 .nav-wrapper {
-  background-color: #0d47a1;
+  background-color: #90caf9;
   color: white;
 }
